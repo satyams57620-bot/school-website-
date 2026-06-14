@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GOPAL VIDYALAYA INTER COLLEGE [ENGLISH MEDIUM]</title>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 /* Universal Reset */
 *{
@@ -577,6 +579,72 @@ h2::after {
 }
 
 /* ==================================================
+   DETAILED SYLLABUS GRID IMPLEMENTATION
+   ================================================== */
+.syllabus-grid-system {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.syllabus-panel-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.syllabus-panel-card:hover {
+    border-color: #034400;
+    transform: translateY(-2px);
+}
+
+.syllabus-class-tag {
+    background: #eef7ee;
+    color: #034400;
+    padding: 4px 12px;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.syllabus-subject-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.syllabus-subject-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #edf2f7;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.syllabus-subject-list li:last-child {
+    border-bottom: none;
+}
+
+.dl-syllabus-btn {
+    color: #db1b1b;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    transition: color 0.2s;
+}
+.dl-syllabus-btn:hover {
+    color: #034400;
+}
+
+/* ==================================================
    BOOKS DEDICATED SEPARATE INTERFACE SUB-PAGE
    ================================================== */
 .books-hero-banner {
@@ -638,6 +706,75 @@ h2::after {
     object-fit:cover;
     border: 3px solid #003366;
     margin-bottom: 10px;
+}
+
+/* Emblem Detailed Styling Grid */
+.emblem-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+.emblem-card-node {
+    background: #fafafa;
+    border: 1px solid #eef2ee;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #fbb019;
+}
+.emblem-card-node h3 {
+    color: #034400;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+.emblem-card-node p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Official Message Box Styles */
+.message-container-block {
+    background: #ffffff;
+    border: 1px solid #eef2ee;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+.message-profile-aside {
+    text-align: center;
+    width: 200px;
+    flex-shrink: 0;
+}
+.message-profile-aside img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 3px solid #034400;
+    margin-bottom: 10px;
+}
+.message-profile-aside h4 {
+    font-size: 15px;
+    color: #034400;
+    line-height: 1.3;
+}
+.message-profile-aside p {
+    font-size: 12px;
+    color: #db1b1b;
+    font-weight: 600;
+}
+.message-content-body {
+    flex: 1;
+}
+.message-content-body p {
+    font-size: 14.5px;
+    color: #444;
+    margin-bottom: 12px;
+    text-align: justify;
 }
 
 /* Form Configurations */
@@ -880,6 +1017,8 @@ footer{
 @media(max-width: 992px) {
     .teacher-grid-container { grid-template-columns: repeat(3, 1fr); }
     .toppers-showcase-grid { grid-template-columns: repeat(3, 1fr); }
+    .message-container-block { flex-direction: column; align-items: center; }
+    .message-profile-aside { width: 100%; }
 }
 
 @media(max-width: 768px) {
@@ -901,6 +1040,7 @@ footer{
     .teacher-grid-container { grid-template-columns: 1fr; }
     .toppers-showcase-grid { grid-template-columns: 1fr; }
     .books-matrix-layout { grid-template-columns: 1fr; }
+    .syllabus-grid-system { grid-template-columns: 1fr; }
     .toppers-showcase-grid.top-two-layout .topper-modern-card { max-width: 100%; }
 }
 </style>
@@ -936,8 +1076,10 @@ footer{
     <nav>
         <div class="nav-container">
             <a href="#home">HOME</a>
+            <a href="#emblem">OUR EMBLEM</a>
             <a href="#about">ABOUT US</a>
             <a href="#courses">OUR COURSES</a>
+            <a href="#syllabus">SYLLABUS</a>
             <a href="#books-zone">BOOKS</a>
             <a href="#faculty">FACULTY</a>
             <a href="#results-10th">10TH TOPPERS</a>
@@ -973,6 +1115,39 @@ footer{
         <p>Welcome to Gopal Vidyalay Inter College [English Medium]. Our mission is to provide high-quality education and help students achieve academic excellence along with strong moral values.</p>
     </section>
 
+    <section id="emblem" style="border-left-color: #fbb019;">
+        <h2>OUR SCHOOL EMBLEM</h2>
+        <p style="text-align:center; font-weight:600; color:#034400; margin-bottom: 10px;">Gopal Vidyalaya Inter College, Koraon, Prayagraj</p>
+        <p style="text-align:center; font-style:italic; color:#db1b1b; margin-bottom:25px; font-weight:bold;">"Service to Humanity is Service to God"</p>
+        
+        <div class="emblem-grid-layout">
+            <div class="emblem-card-node">
+                <h3>✨ Foundation</h3>
+                <p>“Service to Humanity is service to God” is the motto of our School emblem and the inspiration for the foundation of the institution.</p>
+            </div>
+            <div class="emblem-card-node">
+                <h3>🏃 Pupil</h3>
+                <p>In a polite and disciplined manner the pupil going upward to the path of progress.</p>
+            </div>
+            <div class="emblem-card-node">
+                <h3>🌊 River</h3>
+                <p>The flowing river is symbol of knowledge and learning.</p>
+            </div>
+            <div class="emblem-card-node">
+                <h3>🏔️ Mountain</h3>
+                <p>The high mountain inspires the students to go over the obstacles of life and to reach to its zenith of success.</p>
+            </div>
+            <div class="emblem-card-node">
+                <h3>☀️ The Sun</h3>
+                <p>The rising sun symbolizes the ‘Guru’ that enlightens pupil and the world with the golden rays of knowledge.</p>
+            </div>
+            <div class="emblem-card-node">
+                <h3>🌿 Nature</h3>
+                <p>The nature indicates the need of a good and healthy environment for the growth of seeds (Students).</p>
+            </div>
+        </div>
+    </section>
+
     <section id="courses">
         <h2>OUR COURSES</h2>
         <p style="text-align:center; margin-bottom: 25px; color:#555;">Empowering dynamic minds through tailored pipelines of academic brilliance across core milestones.</p>
@@ -981,7 +1156,38 @@ footer{
         </div>
     </section>
 
-    <section id="books-zone" style="border-left-color: #fbb019;">
+    <section id="syllabus" style="border-left-color: #fbb019;">
+        <h2>📋 ACADEMIC SYLLABUS DESK</h2>
+        <p style="text-align:center; margin-bottom: 25px; color:#555;">Review or download curriculum breakdowns for major board thresholds.</p>
+        
+        <div class="syllabus-grid-system">
+            <div class="syllabus-panel-card">
+                <div class="syllabus-class-tag">Class 9th & 10th</div>
+                <h3>High School Matriculation</h3>
+                <p style="font-size: 13px; color: #666; margin-top: 4px;">Based entirely on NCERT standard evaluation paths.</p>
+                <ul class="syllabus-subject-list">
+                    <li><span>Mathematics (Core)</span> <a href="#" class="dl-syllabus-btn" onclick="alert('Downloading Mathematics syllabus details package.')">PDF ↓</a></li>
+                    <li><span>Science (Physics/Chem/Bio)</span> <a href="#" class="dl-syllabus-btn" onclick="alert('Downloading Science syllabus details package.')">PDF ↓</a></li>
+                    <li><span>Social Sciences</span> <a href="#" class="dl-syllabus-btn" onclick="alert('Downloading Social Sciences syllabus details package.')">PDF ↓</a></li>
+                    <li><span>English Language & Lit.</span> <a href="#" class="dl-syllabus-btn" onclick="alert('Downloading English syllabus details package.')">PDF ↓</a></li>
+                </ul>
+            </div>
+
+            <div class="syllabus-panel-card">
+                <div class="syllabus-class-tag" style="background: #fff5e6; color: #b97500;">Class 11th & 12th</div>
+                <h3>Senior Intermediate (PCM)</h3>
+                <p style="font-size: 13px; color: #666; margin-top: 4px;">Advanced frameworks catering to competitive setups.</p>
+                <ul class="syllabus-subject-list">
+                    <li><span>Physics Theory & Lab</span> <a href="#" class="dl-syllabus-btn" onclick="alert('Downloading Physics Advanced syllabus.')">PDF ↓</a></li>
+                    <li><span>Inorganic & Organic Chem</span> <a href="#" class="dl-syllabus-btn" onclick="alert('Downloading Chemistry Advanced syllabus.')">PDF ↓</a></li>
+                    <li><span>Calculus & Pure Mathematics</span> <a href="#" class="dl-syllabus-btn" onclick="alert('Downloading Mathematics Advanced syllabus.')">PDF ↓</a></li>
+                    <li><span>English Core Literature</span> <a href="#" class="dl-syllabus-btn" onclick="alert('Downloading English Core syllabus.')">PDF ↓</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="books-zone" style="border-left-color: #034400;">
         <h2>📚 SCHOOL CURRICULUM BOOKS SECTION</h2>
         <p style="text-align:center; color:#666; margin-bottom:15px; font-size:14.5px;">Click or tap any grade pipeline framework below to access detailed list array resources instantly.</p>
         
@@ -1011,28 +1217,59 @@ footer{
 
     <section id="about">
         <h2>ABOUT US</h2>
-        <div class="faculty">
-            <div class="teacher">
+        
+        <div class="message-container-block">
+            <div class="message-profile-aside">
                 <img src="founder.jpg" alt="Founder" onerror="handleImageError(this)">
-                <h3>RAJA BAHADUR RAJA AJEYA SINGH</h3>
-                <p class="sub-text">Founder</p>
+                <h4>Raja Bahadur Raja Ajeya Singh</h4>
+                <p>Founder & Manager</p>
             </div>
-            <div class="teacher">
+            <div class="message-content-body">
+                <h3 style="color:#034400; margin-bottom:10px; font-size:18px; border-bottom:2px solid #fbb019; padding-bottom:5px;">MANAGEMENT DESK MESSAGE</h3>
+                <p>It's a matter of great joy that the school is publishing 5th edition of 'The Rising', its annual magazine. I hope that the edition would be better in its every aspects, and would be more useful towards overall development of students of this area.</p>
+                <p>I congratulate and thank all teachers and parents for their help and co-operation. May this magazine continue to inspire loving and budding talents into actions towards the formation of new India. India that could be a place like heaven on earth where thoughts and ideas may get their best expressions.</p>
+                <p>Thanks.</p>
+            </div>
+        </div>
+
+        <div class="message-container-block" style="border-left:4px solid #db1b1b;">
+            <div class="message-profile-aside">
                 <img src="voicepresident.jpg" alt="Vice President" onerror="handleImageError(this)">
-                <h3>Mrs. R.N. Bajpai</h3>
-                <p class="sub-text">Vice President</p>
+                <h4>R. N. Bajpai</h4>
+                <p>Vice-President</p>
+            </div>
+            <div class="message-content-body">
+                <h3 style="color:#034400; margin-bottom:10px; font-size:18px; border-bottom:2px solid #db1b1b; padding-bottom:5px;">VICE PRESIDENTIAL DESK ADDRESS</h3>
+                <p>The 5th edition of 'The Rising' is really a matter of joy and the result of great endeavours of our teachers, students and all other dedicated employees. I congratulate and thank everyone from the depth of my heart. I am fully convinced that this edition will be more instrumental and useful towards better India. I hereby invite more suggestions from the parents and well-wishers to be more fruitful for young learners.</p>
+                <p>I hope that all of you will continue to shower your love and affection on us and the school will continue to kindle the light of wisdom and knowledge in the hearts of this region.</p>
+                <p>I wish you all the best!</p>
             </div>
         </div>
     </section>
 
     <section id="faculty">
-        <h2>FACULTY</h2>
-        <div class="faculty">
-            <div class="teacher">
+        <h2>FACULTY & LEADERSHIP DESK</h2>
+        
+        <div class="message-container-block" style="border-left: 4px solid #fbb019; background:#fcfdfc;">
+            <div class="message-profile-aside">
                 <img src="principle.jpg" alt="Principal" onerror="handleImageError(this)">
-                <h3>Dr. Mohd. SABIR ALI</h3>
-                <p class="sub-text">Principal</p>
+                <h4>Dr. Mohd. Sabir Ali</h4>
+                <p>Principal</p>
             </div>
+            <div class="message-content-body">
+                <h3 style="color:#034400; margin-bottom:12px; font-size:19px; font-weight:bold;">FROM THE PRINCIPAL'S DESK</h3>
+                <p>Dear Readers,</p>
+                <p>School life is very important part of our life because it provides opportunity for study, discipline and progress. The school life is a preparatory stage for entering public life. Education is not gaining about a degree but it is about how can we live on our feet. We live today in a world that is very different from the past. The world today is changing at such an acceleration of the future.</p>
+                <p>As the Principal of the school I feel honoured and privileged to be a part of such educational institution where every person is a learner and everyday is an opportunity to learn and discover. We look ourselves as a community of learners where everyone learns including students, teachers, parents and staff.</p>
+                <p>Gopal Vidyalaya Inter College Koraon (Hindi and English medium) has also established its reputation in imparting quality education. The school always tries its best to maintain the highest quality academic standards and provide the wonderful environment for students. The aim of our school is to provide unmatched qualitative education. Our approach to learning is child centric which encourages activity-based learning in academics, sports and co-curricular activities. We are doing our best to prepare the institution with a clear vision of educational intentions.</p>
+                <p>We are constantly improving our teaching method, developing infrastructural facilities and resources so that the students can achieve their goal. I invite more suggestions from the learned persons of the area, parents and well-wishers of the school. Our goal is to discover and nurture the unique abilities of the students and transforming him/her to be a confident and responsible citizen.</p>
+                <p>I am grateful to the Chairperson of management committee Rajmata Mrs. Seeta Kumari, Manager of this institution honourable Raja Bahadur Raja Ajeya Singh and honourable vice-president of Gopal Vidyalaya Management Committee Mr. R.N. Bajpai for their grace and guidance to the institution, editorial committee of this magazine, management committee, all the learned teachers, non-teaching staff, students and well-wishers of the college.</p>
+                <p>Thanking you,</p>
+                <p><strong>Dr. Mohd. Sabir Ali</strong></p>
+            </div>
+        </div>
+
+        <div class="faculty" style="margin-top:30px;">
             <div class="teacher">
                 <img src="hod.jpg" alt="HOD" onerror="handleImageError(this)">
                 <h3>Mrs. BRIJESH SHRIVASTAV</h3>
@@ -1222,6 +1459,7 @@ footer{
             <h3 style="color:#830808; margin-bottom:10px;" id="teacherFormHeading">👤 Admin Teachers Registry Manager</h3>
             <form id="adminTeacherForm" onsubmit="saveTeacherProfile(event)">
                 <input type="hidden" id="editingTeacherIndex" value="">
+                <input type="hidden" id="editingTeacherId" value="">
                 <div style="display: flex; flex-wrap: wrap; gap: 15px;">
                     <div class="input-group" style="flex:1; min-width:200px;">
                         <label>Teacher Full Name</label>
@@ -1255,6 +1493,7 @@ footer{
             <h3 style="color:#034400; margin-bottom:10px;" id="topper10FormHeading">🏆 Admin Class 10th Toppers Manager</h3>
             <form id="admin10TopperForm" onsubmit="saveTopper10(event)" style="display:flex; flex-wrap:wrap; gap:15px; align-items:flex-end;">
                 <input type="hidden" id="editing10TopperIndex" value="">
+                <input type="hidden" id="editing10TopperId" value="">
                 <div class="input-group" style="flex:2; min-width:200px; margin-bottom:0;">
                     <label>Student Name</label>
                     <input type="text" id="top10Name" required>
@@ -1279,6 +1518,7 @@ footer{
             <h3 style="color:#db1b1b; margin-bottom:10px;" id="topper12FormHeading">⭐ Admin Class 12th Toppers Manager</h3>
             <form id="admin12TopperForm" onsubmit="saveTopper12(event)" style="display:flex; flex-wrap:wrap; gap:15px; align-items:flex-end;">
                 <input type="hidden" id="editing12TopperIndex" value="">
+                <input type="hidden" id="editing12TopperId" value="">
                 <div class="input-group" style="flex:2; min-width:200px; margin-bottom:0;">
                     <label>Topper Name</label>
                     <input type="text" id="top12Name" required>
@@ -1303,6 +1543,13 @@ footer{
 </div>
 
 <script>
+// ==========================================
+// SUPABASE CLIENT INITIALIZATION
+// ==========================================
+const supabaseUrl = 'YOUR_SUPABASE_PROJECT_URL'; // <-- Paste your project URL here
+const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY'; // <-- Paste your anon key here
+const _supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
 const CONFIG_REGISTRY = Object.freeze({
     intervals: { hero: 3000, courses: 4000 }
 });
@@ -1341,61 +1588,51 @@ function handleImageError(imgNode) {
 function escapeHTML(str) {
     if (!str) return '';
     return str.replace(/[&<>'"]/g, tag => ({
-        '&': '&', '<': '<', '>': '>', "'": "'", '"': '"'
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
     }[tag] || tag));
 }
 
-window.onload = function() {
-    seedInitialData();
+window.onload = async function() {
     setupCoreListeners();
+    seedCoursesData();
     
-    renderToppers10Display();
-    renderToppers12Display();
+    // Fetch directly from your live database tables
+    await loadLiveDatabaseContent();
+
     renderCoursesSlider();
-    renderTeachersDisplayGrid();
     renderLiveSocialButtons(); 
     initHeroFullscreenSlider();
 };
 
-function seedInitialData() {
-    globalToppers10List = [
-        { name: "Satyam Singh", percentage: "98.4%", image: "school.png" },
-        { name: "Kriti Kumari", percentage: "96.8%", image: "school.png" },
-        { name: "Anand Shukla", percentage: "95.2%", image: "school.png" },
-        { name: "Divya Mishra", percentage: "94.8%", image: "school.png" },
-        { name: "Rajesh Yadav", percentage: "94.1%", image: "school.png" },
-        { name: "Aditya Tiwari", percentage: "93.6%", image: "school.png" },
-        { name: "Anjali Gupta", percentage: "92.8%", image: "school.png" },
-        { name: "Neha Singh", percentage: "92.2%", image: "school.png" },
-        { name: "Vikram Seth", percentage: "91.5%", image: "school.png" },
-        { name: "Rohan Verma", percentage: "91.0%", image: "school.png" }
-    ];
-
-    globalToppers12List = [
-        { name: "Rahul Sharma", percentage: "97.8%", image: "school.png" },
-        { name: "Priya Patel", percentage: "96.2%", image: "school.png" },
-        { name: "Amit Tripathi", percentage: "95.0%", image: "school.png" },
-        { name: "Sneha Mishra", percentage: "94.6%", image: "school.png" },
-        { name: "Gaurav Singh", percentage: "93.8%", image: "school.png" },
-        { name: "Pooja Joshi", percentage: "93.2%", image: "school.png" },
-        { name: "Ravi Teja", percentage: "92.4%", image: "school.png" },
-        { name: "Shweta Tiwari", percentage: "91.8%", image: "school.png" },
-        { name: "Deepak Raj", percentage: "91.2%", image: "school.png" },
-        { name: "Manish Kumar", percentage: "90.6%", image: "school.png" }
-    ];
-
+function seedCoursesData() {
     globalCoursesList = [
         { quote: "LKG to 8", image: "school.jpg", desc: "Foundational primary modules covering English grammar, elementary analytics, moral and creative skill labs." },
         { quote: "09 and 10", image: "school1.webp", desc: "Core matriculation preparation paths focusing strictly on advanced board standards." },
         { quote: "11 and 12", image: "school2.webp", desc: "Senior intermediate pathways with specialized stream pipelines for PCM (Physics, Chemistry, Mathematics)." }
     ];
+}
 
-    globalTeachersList = [
-        { name: "Mr. Satyam Singh", subject: "Physics", post: "PGT Lecturer", image: "school.png" },
-        { name: "Anand Mishra", subject: "Mathematics", post: "TGT Instructor", image: "school.png" },
-        { name: "R. K. Verma", subject: "Chemistry", post: "Senior Expert", image: "school.png" },
-        { name: "S. P. Tripathi", subject: "English Literature", post: "HOD Language", image: "school.png" }
-    ];
+async function loadLiveDatabaseContent() {
+    try {
+        // 1. Fetch live 10th toppers ordered by percentage/rank
+        const t10 = await _supabase.from('toppers_10').select('*').order('id', { ascending: true });
+        if(!t10.error) globalToppers10List = t10.data;
+
+        // 2. Fetch live 12th toppers
+        const t12 = await _supabase.from('toppers_12').select('*').order('id', { ascending: true });
+        if(!t12.error) globalToppers12List = t12.data;
+
+        // 3. Fetch live Teachers
+        const teach = await _supabase.from('teachers').select('*').order('id', { ascending: true });
+        if(!teach.error) globalTeachersList = teach.data;
+
+        // Render current structures live
+        renderToppers10Display();
+        renderToppers12Display();
+        renderTeachersDisplayGrid();
+    } catch(err) {
+        console.error("Database connection configuration failed context: ", err);
+    }
 }
 
 function setupCoreListeners() {
@@ -1437,7 +1674,7 @@ function renderToppers10Display() {
             <div class="topper-modern-card">
                 <div class="topper-badge-label">Rank ${i+1}</div>
                 <div class="topper-avatar-frame">
-                    <img src="${escapeHTML(st.image)}" onclick="handleImageError(this)" onerror="handleImageError(this)">
+                    <img src="${escapeHTML(st.image)}" onerror="handleImageError(this)">
                 </div>
                 <div class="topper-details-panel">
                     <div class="topper-student-name">${escapeHTML(st.name)}</div>
@@ -1456,7 +1693,7 @@ function renderToppers10Display() {
                 <td><span class="badge badge-green">${escapeHTML(st.percentage)}</span></td>
                 <td>
                     <button class="action-btn btn-edit" onclick="edit10Topper(${i})">Edit</button>
-                    <button class="action-btn btn-delete" onclick="delete10Topper(${i})">Delete</button>
+                    <button class="action-btn btn-delete" onclick="delete10Topper(${st.id})">Delete</button>
                 </td>
             </tr>`;
     });
@@ -1472,7 +1709,7 @@ function renderToppers12Display() {
             <div class="topper-modern-card" style="border-color:#db1b1b;">
                 <div class="topper-badge-label" style="background:#db1b1b;color:#fff;">Rank ${i+1}</div>
                 <div class="topper-avatar-frame" style="border-bottom-color:#db1b1b;">
-                    <img src="${escapeHTML(st.image)}" onclick="handleImageError(this)" onerror="handleImageError(this)">
+                    <img src="${escapeHTML(st.image)}" onerror="handleImageError(this)">
                 </div>
                 <div class="topper-details-panel">
                     <div class="topper-student-name">${escapeHTML(st.name)}</div>
@@ -1491,7 +1728,7 @@ function renderToppers12Display() {
                 <td><span class="badge badge-blue">${escapeHTML(st.percentage)}</span></td>
                 <td>
                     <button class="action-btn btn-edit" onclick="edit12Topper(${i})">Edit</button>
-                    <button class="action-btn btn-delete" onclick="delete12Topper(${i})">Delete</button>
+                    <button class="action-btn btn-delete" onclick="delete12Topper(${st.id})">Delete</button>
                 </td>
             </tr>`;
     });
@@ -1600,87 +1837,115 @@ function returnToMainFromBooks() {
     document.getElementById('books-zone').scrollIntoView({ behavior: 'smooth' });
 }
 
-function saveTopper10(e) {
+async function saveTopper10(e) {
     e.preventDefault();
     const name = document.getElementById('top10Name').value.trim();
     const pct = document.getElementById('top10Percentage').value.trim();
     const index = document.getElementById('editing10TopperIndex').value;
+    const dbId = document.getElementById('editing10TopperId').value;
     let finalPct = pct.includes('%') ? pct : pct + '%';
 
+    let imgPayload = current10TopperBase64;
+    
     if(index !== "") {
-        globalToppers10List[index] = { name, percentage: finalPct, image: current10TopperBase64 || globalToppers10List[index].image };
+        if(!imgPayload) imgPayload = globalToppers10List[index].image;
+        await _supabase.from('toppers_10').update({ name, percentage: finalPct, image: imgPayload }).eq('id', dbId);
     } else {
-        globalToppers10List.push({ name, percentage: finalPct, image: current10TopperBase64 || "school.png" });
+        if(!imgPayload) imgPayload = "school.png";
+        await _supabase.from('toppers_10').insert([{ name, percentage: finalPct, image: imgPayload }]);
     }
+    
     document.getElementById('admin10TopperForm').reset();
     document.getElementById('editing10TopperIndex').value = "";
+    document.getElementById('editing10TopperId').value = "";
     current10TopperBase64 = "";
-    renderToppers10Display();
+    document.getElementById('topper10FormHeading').textContent = "🏆 Admin Class 10th Toppers Manager";
+    await loadLiveDatabaseContent();
 }
 
 function edit10Topper(i) {
+    const record = globalToppers10List[i];
     document.getElementById('editing10TopperIndex').value = i;
-    document.getElementById('top10Name').value = globalToppers10List[i].name;
-    document.getElementById('top10Percentage').value = globalToppers10List[i].percentage;
+    document.getElementById('editing10TopperId').value = record.id;
+    document.getElementById('top10Name').value = record.name;
+    document.getElementById('top10Percentage').value = record.percentage;
     document.getElementById('topper10FormHeading').textContent = "✏️ Edit Class 10th Record File";
 }
 
-function delete10Topper(i) {
+async function delete10Topper(id) {
     if(confirm("Delete Class 10th record row?")) {
-        globalToppers10List.splice(i,1); renderToppers10Display();
+        await _supabase.from('toppers_10').delete().eq('id', id);
+        await loadLiveDatabaseContent();
     }
 }
 
-function saveTopper12(e) {
+async function saveTopper12(e) {
     e.preventDefault();
     const name = document.getElementById('top12Name').value.trim();
     const pct = document.getElementById('top12Percentage').value.trim();
     const index = document.getElementById('editing12TopperIndex').value;
+    const dbId = document.getElementById('editing12TopperId').value;
     let finalPct = pct.includes('%') ? pct : pct + '%';
 
+    let imgPayload = current12TopperBase64;
+
     if(index !== "") {
-        globalToppers12List[index] = { name, percentage: finalPct, image: current12TopperBase64 || globalToppers12List[index].image };
+        if(!imgPayload) imgPayload = globalToppers12List[index].image;
+        await _supabase.from('toppers_12').update({ name, percentage: finalPct, image: imgPayload }).eq('id', dbId);
     } else {
-        globalToppers12List.push({ name, percentage: finalPct, image: current12TopperBase64 || "school.png" });
+        if(!imgPayload) imgPayload = "school.png";
+        await _supabase.from('toppers_12').insert([{ name, percentage: finalPct, image: imgPayload }]);
     }
+    
     document.getElementById('admin12TopperForm').reset();
     document.getElementById('editing12TopperIndex').value = "";
+    document.getElementById('editing12TopperId').value = "";
     current12TopperBase64 = "";
-    renderToppers12Display();
+    document.getElementById('topper12FormHeading').textContent = "⭐ Admin Class 12th Toppers Manager";
+    await loadLiveDatabaseContent();
 }
 
 function edit12Topper(i) {
+    const record = globalToppers12List[i];
     document.getElementById('editing12TopperIndex').value = i;
-    document.getElementById('top12Name').value = globalToppers12List[i].name;
-    document.getElementById('top12Percentage').value = globalToppers12List[i].percentage;
+    document.getElementById('editing12TopperId').value = record.id;
+    document.getElementById('top12Name').value = record.name;
+    document.getElementById('top12Percentage').value = record.percentage;
     document.getElementById('topper12FormHeading').textContent = "✏️ Edit Class 12th Record File";
 }
 
-function delete12Topper(i) {
+async function delete12Topper(id) {
     if(confirm("Delete Class 12th record row?")) {
-        globalToppers12List.splice(i,1); renderToppers12Display();
+        await _supabase.from('toppers_12').delete().eq('id', id);
+        await loadLiveDatabaseContent();
     }
 }
 
-function saveTeacherProfile(event) {
+async function saveTeacherProfile(event) {
     event.preventDefault();
     const nameVal = document.getElementById('teachName').value.trim();
     const subVal = document.getElementById('teachSubject').value.trim();
     const postVal = document.getElementById('teachPost').value.trim();
     const idxVal = document.getElementById('editingTeacherIndex').value;
+    const dbId = document.getElementById('editingTeacherId').value;
+
+    let imgPayload = currentTeacherBase64FileStr;
 
     if (idxVal !== "") {
         let idx = parseInt(idxVal, 10);
-        globalTeachersList[idx] = { name: nameVal, subject: subVal, post: postVal, image: currentTeacherBase64FileStr || globalTeachersList[idx].image };
+        if(!imgPayload) imgPayload = globalTeachersList[idx].image;
+        await _supabase.from('teachers').update({ name: nameVal, subject: subVal, post: postVal, image: imgPayload }).eq('id', dbId);
     } else {
-        globalTeachersList.push({ name: nameVal, subject: subVal, post: postVal, image: currentTeacherBase64FileStr || "school.png" });
+        if(!imgPayload) imgPayload = "school.png";
+        await _supabase.from('teachers').insert([{ name: nameVal, subject: subVal, post: postVal, image: imgPayload }]);
     }
     resetTeacherFormState();
-    renderTeachersDisplayGrid();
+    await loadLiveDatabaseContent();
 }
 
 function resetTeacherFormState() {
     document.getElementById('editingTeacherIndex').value = "";
+    document.getElementById('editingTeacherId').value = "";
     document.getElementById('adminTeacherForm').reset();
     currentTeacherBase64FileStr = "";
     document.getElementById('teacherFormHeading').textContent = "👤 Admin Teachers Registry Manager";
@@ -1721,6 +1986,7 @@ function renderTeachersDisplayGrid() {
 function editTeacherEntry(index) {
     const target = globalTeachersList[index];
     document.getElementById('editingTeacherIndex').value = index;
+    document.getElementById('editingTeacherId').value = target.id;
     document.getElementById('teachName').value = target.name;
     document.getElementById('teachSubject').value = target.subject;
     document.getElementById('teachPost').value = target.post;
@@ -1735,7 +2001,7 @@ function renderLiveSocialButtons() {
         instagram: `<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`,
         twitter: `<svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
         facebook: `<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
-        whatsapp: `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.707 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`,
+        whatsapp: `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.707 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`,
         telegram: `<svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.87 4.326-2.962-.924c-.643-.204-.658-.643.136-.953l11.57-4.46c.536-.2.1.303-.136.508z"/></svg>`
     };
 
@@ -1865,4 +2131,4 @@ function logoutToMain() {
 }
 </script>
 </body>
-    </html>
+</html>
