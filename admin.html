@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GVIC Admin Portal</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.admin-container{
+    max-width:1000px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.admin-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:25px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.admin-card h2{
+    color:#003366;
+    margin-bottom:15px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    background:#00509e;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#003366;
+}
+
+.news-list,
+.gallery-list{
+    margin-top:20px;
+}
+
+.item{
+    background:#f4f4f4;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:8px;
+}
+
+.delete-btn{
+    background:red;
+    margin-top:10px;
+}
+
+.edit-btn{
+    background:green;
+    margin-left:10px;
+}
+
+.hidden{
+    display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="logo-section">
+        <img src="images/logo.png" class="logo">
+        <div>
+            <h1>GVIC Admin Portal</h1>
+            <p>Gopal Vidyalaya Inter College [English Medium]</p>
+        </div>
+    </div>
+</header>
+
+<div class="admin-container">
+
+<!-- LOGIN -->
+
+<div class="admin-card" id="loginSection">
+
+<h2>Admin Login</h2>
+
+<input type="email" id="email" placeholder="Admin Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p id="loginMessage"></p>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboard" class="hidden">
+
+<!-- NEWS MANAGEMENT -->
+
+<div class="admin-card">
+
+<h2>Manage News & Events</h2>
+
+<input type="text" id="newsTitle"
+placeholder="News Title">
+
+<textarea id="newsContent"
+placeholder="Write News Details"></textarea>
+
+<button onclick="addNews()">
+Add News
+</button>
+
+<div id="newsList"
+class="news-list">
+</div>
+
+</div>
+
+<!-- GALLERY MANAGEMENT -->
+
+<div class="admin-card">
+
+<h2>Manage Gallery</h2>
+
+<input type="text"
+id="imageUrl"
+placeholder="Image URL">
+
+<button onclick="addGalleryImage()">
+Add Image
+</button>
+
+<div id="galleryList"
+class="gallery-list">
+</div>
+
+</div>
+
+<!-- CONTACT MANAGEMENT -->
+
+<div class="admin-card">
+
+<h2>School Information</h2>
+
+<input type="text"
+id="schoolPhone"
+placeholder="Phone Number">
+
+<input type="email"
+id="schoolEmail"
+placeholder="School Email">
+
+<input type="text"
+id="schoolMap"
+placeholder="Google Map Link">
+
+<button onclick="updateSchoolInfo()">
+Update Information
+</button>
+
+</div>
+
+<!-- LOGOUT -->
+
+<div class="admin-card">
+
+<button onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase-config.js"></script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

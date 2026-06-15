@@ -1,0 +1,344 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+    line-height:1.6;
+}
+
+/* HEADER */
+
+header{
+    background:#003366;
+    color:white;
+    padding:20px;
+}
+
+.logo-section{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.logo{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#00509e;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    list-style:none;
+}
+
+nav ul li{
+    margin:0;
+}
+
+nav ul li a{
+    display:block;
+    padding:15px 20px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    background:#003366;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ),
+    url("images/school1.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:900px;
+    margin:auto;
+    font-size:18px;
+}
+
+/* SECTION */
+
+section{
+    padding:60px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+    color:#003366;
+    font-size:32px;
+}
+
+/* GALLERY */
+
+.slider{
+    width:90%;
+    max-width:1000px;
+    height:450px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.slides{
+    display:flex;
+    width:500%;
+    animation:slide 20s infinite;
+}
+
+.slides img{
+    width:20%;
+    height:450px;
+    object-fit:cover;
+}
+
+@keyframes slide{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    20%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-20%);
+    }
+
+    45%{
+        transform:translateX(-20%);
+    }
+
+    50%{
+        transform:translateX(-40%);
+    }
+
+    70%{
+        transform:translateX(-40%);
+    }
+
+    75%{
+        transform:translateX(-60%);
+    }
+
+    95%{
+        transform:translateX(-60%);
+    }
+
+    100%{
+        transform:translateX(-80%);
+    }
+}
+
+/* ABOUT */
+
+#about p{
+    max-width:1000px;
+    margin:auto;
+    text-align:justify;
+    font-size:18px;
+}
+
+/* EMBLEM */
+
+.emblem-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card h3{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+/* MANAGEMENT */
+
+.message-box{
+    background:white;
+    padding:25px;
+    margin-bottom:20px;
+    border-left:6px solid #00509e;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.message-box h3{
+    color:#003366;
+}
+
+.message-box h4{
+    color:#555;
+    margin-bottom:10px;
+}
+
+/* FACULTY */
+
+.faculty-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.teacher{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.teacher img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+
+.teacher h3{
+    color:#003366;
+}
+
+/* FACILITIES */
+
+.facility-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.facility-grid .card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+/* NEWS */
+
+#news-container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* CONTACT */
+
+#contact{
+    text-align:center;
+}
+
+#contact p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+.map{
+    margin-top:25px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero{
+        padding:70px 15px;
+    }
+
+    .hero h2{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .slider{
+        height:250px;
+    }
+
+    .slides img{
+        height:250px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    nav ul li a{
+        text-align:center;
+        border-bottom:1px solid rgba(255,255,255,0.2);
+    }
+
+    .section-title{
+        font-size:26px;
+    }
+}
